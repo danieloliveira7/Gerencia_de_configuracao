@@ -31,7 +31,7 @@ if (!$tarefa) {
 <head>
     <meta charset="UTF-8">
     <title>Editar Tarefa</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <h2>Editar Tarefa</h2>
