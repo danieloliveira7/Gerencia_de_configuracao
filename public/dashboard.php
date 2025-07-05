@@ -44,7 +44,7 @@ $tarefas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Minhas Tarefas</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <body>
     <h2>Bem-vindo, <?= $_SESSION['usuario_nome'] ?></h2>
