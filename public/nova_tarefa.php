@@ -11,7 +11,7 @@ if (!isset($_SESSION['usuario_id'])) {
 <head>
     <meta charset="UTF-8">
     <title>Nova Tarefa</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <h2>Criar Nova Tarefa</h2>
