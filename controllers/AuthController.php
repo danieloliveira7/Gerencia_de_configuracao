@@ -12,8 +12,8 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 if ($user && password_verify($senha, $user['senha_hash'])) {
     $_SESSION['usuario_id'] = $user['id'];
     $_SESSION['usuario_nome'] = $user['nome'];
-    header("Location: ../public/dashboard.php");
+    header("Location: /dashboard.php");
 } else {
     $_SESSION['erro'] = "Credenciais inválidas.";
-    header("Location: ../public/index.php");
+    header("Location: /index.php");
 }
