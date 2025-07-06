@@ -1,5 +1,5 @@
 <?php
-$host = '177.44.248.56';  
+$host = 'integration_db';  
 $port = '5432';
 $dbname = 'postgres';
 $user = 'postgres';
