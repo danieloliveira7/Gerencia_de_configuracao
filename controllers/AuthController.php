@@ -15,5 +15,5 @@ if ($user && password_verify($senha, $user['senha_hash'])) {
     header("Location: /dashboard.php");
 } else {
     $_SESSION['erro'] = "Credenciais inválidas.";
-    header("Location: ../public/index.php");
+    header("Location: /index.php");
 }
