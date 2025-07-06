@@ -24,7 +24,7 @@ if ($acao === 'criar' && $usuario_id) {
     // Envia e-mail
     enviarEmail($_SESSION['usuario_nome'], $_SESSION['usuario_id'], 'criada', $descricao);
 
-    header("Location: ../public/dashboard.php");
+    header("Location: /dashboard.php");
     exit;
 }
 // Atualizar tarefa
@@ -62,7 +62,7 @@ if ($acao === 'atualizar' && $usuario_id) {
     // Envia e-mail
     enviarEmail($_SESSION['usuario_nome'], $usuario_id, 'atualizada', $descricao);
 
-    header("Location: ../public/dashboard.php");
+    header("Location: /dashboard.php");
     exit;
 }
 
@@ -74,6 +74,6 @@ if ($acao === 'deletar' && isset($_GET['id'])) {
     $stmt = $pdo->prepare("DELETE FROM tarefa WHERE id = :id AND usuario_id = :usuario_id");
     $stmt->execute(['id' => $id, 'usuario_id' => $usuario_id]);
 
-    header("Location: ../public/dashboard.php");
+    header("Location: /dashboard.php");
     exit;
 }
