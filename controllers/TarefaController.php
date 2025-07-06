@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once '../config/db.php';
-require_once '../lib/email.php'; // vamos criar esse depois
+require_once '/../../config/db.php';
+require_once '/../../lib/email.php'; // vamos criar esse depois
 
 $acao = $_POST['acao'] ?? $_GET['acao'] ?? '';
 $usuario_id = $_SESSION['usuario_id'] ?? null;
