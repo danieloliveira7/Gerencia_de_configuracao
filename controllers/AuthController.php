@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../config/db.php';
+require_once '/html/config/db.php';
 
 $email = $_POST['email'];
 $senha = $_POST['senha'];
