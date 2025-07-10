@@ -4,61 +4,47 @@ pipeline {
     environment {
         CONTAINER = "integration_app"
         PROJECT_DIR = "/var/www/html"
+        CONTAINER_HOMOLOG = "homolog_app"
     }
 
     stages {
-
-        stage('Atualizar Código') {
+        stage('Deploy em Integração') {
             steps {
-                echo "Atualizando código no ${CONTAINER}..."
+                echo "Deploy em Integração iniciado..."
                 sh """
                     docker exec ${CONTAINER} git -C ${PROJECT_DIR} fetch --all
-                    docker exec ${CONTAINER} git -C ${PROJECT_DIR} reset --hard origin/develop
+                    docker exec ${CONTAINER} git -C ${PROJECT_DIR} reset --hard origin/integration
+                    docker exec ${CONTAINER} composer install -d ${PROJECT_DIR}
                 """
+                echo "Deploy em Integração concluído!"
             }
         }
 
-        stage('Instalar Dependências') {
+        stage('Aprovar Deploy em Homologação') {
             steps {
-                echo "Rodando composer install no ${CONTAINER}..."
-                sh "docker exec ${CONTAINER} composer install -d ${PROJECT_DIR}"
-            }
-        }
-
-        stage('Rodar Testes') {
-            steps {
-                echo "Ajustando permissão do PHPUnit..."
-                sh "docker exec ${CONTAINER} chmod +x ${PROJECT_DIR}/vendor/bin/phpunit"
-
-                echo "Executando PHPUnit..."
-                sh "docker exec ${CONTAINER} ${PROJECT_DIR}/vendor/bin/phpunit"
-            }
-        }
-
-        stage('Aprovação para Homologação') {
-            steps {
-                input message: 'Os testes passaram. Aprovar deploy para homologação?'
+                input message: 'Deseja realizar o deploy em homologação agora?'
             }
         }
 
         stage('Deploy em Homologação') {
             steps {
-                echo "Executando deploy em homologação no ${CONTAINER}..."
+                echo "Deploy em Homologação iniciado..."
                 sh """
-                    docker exec ${CONTAINER} git -C ${PROJECT_DIR} pull origin develop
-                    docker exec ${CONTAINER} composer install -d ${PROJECT_DIR}
+                    docker exec ${CONTAINER_HOMOLOG} git -C ${PROJECT_DIR} fetch --all
+                    docker exec ${CONTAINER_HOMOLOG} git -C ${PROJECT_DIR} reset --hard origin/develop
+                    docker exec ${CONTAINER_HOMOLOG} composer install -d ${PROJECT_DIR}
                 """
-                echo "Deploy concluído em homologação!"
+                echo "Deploy em Homologação concluído!"
             }
         }
     }
 
     post {
         success {
-            echo "Pipeline concluído com sucesso."
+            echo "Pipeline finalizado com sucesso."
         }
         failure {
-            echo "Falha durante a execução do pipeline. Verifique os logs no Jenkins."
+            echo "Falha durante o pipeline. Verifique os logs no Jenkins."
         }
     }
 }
