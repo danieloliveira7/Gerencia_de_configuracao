@@ -1,5 +1,5 @@
 <?php
-$host = 'homolog_db';
+$host = 'homolog_db'; 
 $port = '5432';
 $dbname = 'postgres';
 $user = 'postgres';

@@ -1,9 +1,9 @@
 <?php
-$host = 'localhost';
+$host = 'integration_db';
 $dbname = 'postgres';
 $user = 'postgres';
 $password = 'postgres';
-$port = '5433';
+$port = '5432';
 
 try {
     $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password, [
