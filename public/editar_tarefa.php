@@ -48,9 +48,7 @@ if (!$tarefa) {
             <input type="date" name="data_prevista" value="<?= $tarefa['data_prevista'] ?>">
         </label><br><br>
 
-        <label>Data Encerramento:<br>
-            <input type="date" name="data_encerramento" value="<?= $tarefa['data_encerramento'] ?>">
-        </label><br><br>
+        
 
         <label>Situação:<br>
             <select name="situacao">
