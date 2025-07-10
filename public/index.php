@@ -11,7 +11,7 @@
     <input type="password" name="senha" placeholder="Senha" required><br>
     <button type="submit">Entrar</button>
 </form>
-<p>Não tem conta? <a href="cadastrar_usuario.php">Cadastre-se aqui</a></p>
+<p>Não tem conta ? <a href="cadastrar_usuario.php">Cadastre-se aqui</a></p>
 <?php if (isset($_SESSION['erro'])): ?>
 <p style="color:red"><?= $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
 <?php endif; ?>
