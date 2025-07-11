@@ -45,8 +45,8 @@ $tarefas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <title>Minhas Tarefas</title>
     <link rel="stylesheet" href="/css/style.css">
-</head>
 
+</head>
 <body>
     <h2>Bem-vindo, <?= $_SESSION['usuario_nome'] ?></h2>
     <a href="logout.php">Sair</a> | <a href="nova_tarefa.php">Nova Tarefa</a> | <a href="../pdf/gerar_pdf.php">Exportar PDF</a>
@@ -64,7 +64,7 @@ $tarefas = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <button type="submit">Filtrar</button>
     </form>
 
-    <h3>Lista de Tarefas Final</h3>
+    <h3>Lista de Tarefas teste</h3>
     <table border="1" cellpadding="5">
         <tr>
             <th>ID</th>
