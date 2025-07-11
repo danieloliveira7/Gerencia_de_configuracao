@@ -64,7 +64,7 @@ $tarefas = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <button type="submit">Filtrar</button>
     </form>
 
-    <h3>Lista de Tarefas teste</h3>
+    <h3>Lista de Tarefas</h3>
     <table border="1" cellpadding="5">
         <tr>
             <th>ID</th>
