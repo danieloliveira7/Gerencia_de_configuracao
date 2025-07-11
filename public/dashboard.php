@@ -65,7 +65,7 @@ $tarefas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </form>
 
 
-    <h3>Lista de Tarefas 22</h3>
+    <h3>Lista de Tarefas</h3>
 
     <table border="1" cellpadding="5">
         <tr>
